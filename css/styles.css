@@ -1,0 +1,857 @@
+@charset "UTF-8";
+/*
+  This boilerplate is based in ITCSS and SMACSS
+*/
+/* line 6, src/scss/config/_variables.scss */
+:root {
+  --progress: 40%
+;
+}
+
+/* line 1, src/scss/theme/_colors.scss */
+:root {
+  --breadcrumbs: #FF321B;
+  --player1: #AA2293;
+  --player2: #712993;
+  --color-main: #2C3336;
+  --cards-bg: #D1D4D5;
+  --color-secundary: #0095D9;
+}
+
+/* line 1, src/scss/base/base.scss */
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* line 7, src/scss/base/base.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 12, src/scss/base/base.scss */
+html, body {
+  font-size: 16px;
+}
+
+/* line 16, src/scss/base/base.scss */
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: #F1F2F2;
+  color: #3F3E40;
+}
+
+/* line 23, src/scss/base/base.scss */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* line 26, src/scss/base/base.scss */
+a {
+  color: inherit;
+}
+
+/* line 28, src/scss/base/base.scss */
+a, a:hover {
+  text-decoration: none;
+}
+
+/* line 1, src/scss/layout/_layout.scss */
+.container {
+  width: 100%;
+  padding: 0 1em;
+}
+
+/* line 5, src/scss/layout/_layout.scss */
+.main {
+  display: grid;
+  grid-template-columns: 23rem 1fr;
+}
+
+/* line 9, src/scss/layout/_layout.scss */
+.pagewrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* line 1, src/scss/components/_menus.scss */
+.main-menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 9, src/scss/components/_menus.scss */
+.main-menu__item {
+  flex: auto;
+}
+
+/* line 11, src/scss/components/_menus.scss */
+.main-menu__item.active {
+  color: #0095D9;
+}
+
+/* line 15, src/scss/components/_menus.scss */
+.main-menu__link {
+  display: block;
+  padding: 0 1.3em;
+  line-height: 3em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* line 1, src/scss/components/_header.scss */
+.main-header {
+  margin-bottom: 1em;
+}
+
+/* line 4, src/scss/components/_header.scss */
+.breadcrumbs {
+  display: flex;
+  font-size: .9em;
+  background: #F1F1F1;
+  height: 2.3em;
+}
+
+/* line 10, src/scss/components/_header.scss */
+.breadcrumbs.container {
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  padding: 0;
+}
+
+/* line 16, src/scss/components/_header.scss */
+.breadcrumbs-title {
+  display: flex;
+  align-items: center;
+  background: var(--breadcrumbs);
+  padding: 0 0.75em;
+  line-height: 2em;
+  color: #fff;
+  font-size: .9em;
+  position: relative;
+}
+
+/* line 25, src/scss/components/_header.scss */
+.breadcrumbs-title::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #FF321B;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+/* line 38, src/scss/components/_header.scss */
+.breadcrumbs-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  margin-left: 1em;
+  font-size: .9em;
+  height: 100%;
+}
+
+/* line 48, src/scss/components/_header.scss */
+.breadcrumbs-list li::after {
+  content: '>';
+  margin: 0 .5em;
+}
+
+/* line 53, src/scss/components/_header.scss */
+.breadcrumbs-list li:last-child::after {
+  display: none;
+}
+
+/* line 60, src/scss/components/_header.scss */
+.nav-bar {
+  color: #fff;
+  background: #2C3336;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 67, src/scss/components/_header.scss */
+.title-page {
+  font-size: 1.1em;
+}
+
+/* line 1, src/scss/components/_player.scss */
+.payer-container {
+  position: relative;
+  height: auto;
+}
+
+/* line 4, src/scss/components/_player.scss */
+.payer-container::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: 1px;
+  background: #2C3336;
+}
+
+/* line 15, src/scss/components/_player.scss */
+.player {
+  width: 80%;
+  margin: 0 auto 1em;
+  background: linear-gradient(#AA2293, #712993);
+  border-radius: 2.5rem;
+  padding: 1.5em 2em;
+}
+
+/* line 21, src/scss/components/_player.scss */
+.player__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5em;
+}
+
+/* line 27, src/scss/components/_player.scss */
+.player__title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* line 30, src/scss/components/_player.scss */
+.player__share {
+  width: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+/* line 34, src/scss/components/_player.scss */
+.player__share > p {
+  text-align: center;
+}
+
+/* line 37, src/scss/components/_player.scss */
+.player__share .plus {
+  line-height: 2rem;
+  font-size: 2.3em;
+  border: 1px solid;
+}
+
+/* line 42, src/scss/components/_player.scss */
+.player__share .text {
+  font-size: .8em;
+}
+
+/* line 47, src/scss/components/_player.scss */
+.album__cover {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+
+/* line 52, src/scss/components/_player.scss */
+.album__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* line 58, src/scss/components/_player.scss */
+.album__data {
+  margin-bottom: 1em;
+}
+
+/* line 60, src/scss/components/_player.scss */
+.album__data > * {
+  text-align: center;
+  color: #fff;
+}
+
+/* line 65, src/scss/components/_player.scss */
+.song-time {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+/* line 71, src/scss/components/_player.scss */
+.song-time__current, .song-time__total {
+  font-size: .9em;
+}
+
+/* line 74, src/scss/components/_player.scss */
+.song-time .progress {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  background: #fff;
+  height: 3px;
+  border-right: .5em;
+  overflow: hidden;
+}
+
+/* line 84, src/scss/components/_player.scss */
+.song-time .progress__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--progress);
+  height: 100%;
+  background: slategray;
+  z-index: 100;
+}
+
+/* line 95, src/scss/components/_player.scss */
+.player-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 100, src/scss/components/_player.scss */
+.player-buttons > * {
+  cursor: pointer;
+}
+
+/* line 103, src/scss/components/_player.scss */
+.player-buttons__play {
+  line-height: 3rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: 1px solid;
+  margin: 0 2em;
+  text-align: center;
+}
+
+/* line 114, src/scss/components/_player.scss */
+.player__controls {
+  color: #fff;
+}
+
+/* line 117, src/scss/components/_player.scss */
+.player-buttons {
+  margin-bottom: 1em;
+}
+
+/* line 119, src/scss/components/_player.scss */
+.player-buttons__play span {
+  position: relative;
+  left: .1rem;
+}
+
+/* line 124, src/scss/components/_player.scss */
+.player-volume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 129, src/scss/components/_player.scss */
+input[type=range] {
+  position: relative;
+  top: 3px;
+  margin: auto .5em;
+  outline: none;
+  padding: 0;
+  width: 75%;
+  max-width: 200px;
+  height: 2px;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, slategray), color-stop(100%, slategray));
+  background-image: -webkit-linear-gradient(slategray, slategray);
+  background-image: -moz-linear-gradient(slategray, slategray);
+  background-image: -o-linear-gradient(slategray, slategray);
+  background-image: linear-gradient(slategray, slategray);
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* line 151, src/scss/components/_player.scss */
+input[type=range]::-webkit-slider-runnable-track {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+}
+
+/* line 158, src/scss/components/_player.scss */
+input[type=range]::-moz-range-track {
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+/* line 164, src/scss/components/_player.scss */
+input[type=range]::-moz-focus-outer {
+  border: 0;
+}
+
+/* line 168, src/scss/components/_player.scss */
+input[type=range]::-webkit-slider-thumb {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+}
+
+/* line 179, src/scss/components/_player.scss */
+input[type=range]::-moz-range-thumb {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* line 188, src/scss/components/_player.scss */
+#current-time::-webkit-slider-thumb {
+  background: transparent;
+}
+
+/* line 191, src/scss/components/_player.scss */
+#current-time::-moz-range-thumb {
+  background: transparent;
+}
+
+/* line 194, src/scss/components/_player.scss */
+.playlist {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* line 197, src/scss/components/_player.scss */
+.playlist__title {
+  text-align: center;
+}
+
+/* line 200, src/scss/components/_player.scss */
+.playlist__list {
+  list-style: none;
+  transform: translateX(20%);
+  padding: 0;
+  display: block;
+  width: 80%;
+}
+
+/* line 206, src/scss/components/_player.scss */
+.playlist__list li {
+  position: relative;
+  width: 60%;
+}
+
+/* line 210, src/scss/components/_player.scss */
+.playlist__list li::before {
+  position: absolute;
+  content: '▶';
+  color: #333;
+  left: -1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* line 219, src/scss/components/_player.scss */
+.playlist__list a {
+  display: block;
+  line-height: 3em;
+  margin-left: 1em;
+  border-bottom: 1px solid;
+}
+
+/* line 1, src/scss/components/_forms.scss */
+.search-form {
+  width: 50%;
+  min-width: 450px;
+  display: grid;
+  grid-template-columns: 1fr 5em;
+  grid-gap: 1em;
+  margin-bottom: 2em;
+}
+
+/* line 8, src/scss/components/_forms.scss */
+.search-form .input-form {
+  line-height: 2.3em;
+  border: 1px solid #2C3336;
+  border-radius: .2rem;
+}
+
+/* line 12, src/scss/components/_forms.scss */
+.search-form .input-form:focus {
+  outline: none;
+}
+
+/* line 17, src/scss/components/_forms.scss */
+.search {
+  padding: 0 .3rem;
+}
+
+/* line 20, src/scss/components/_forms.scss */
+.btn-search {
+  color: #fff;
+  background: #2C3336;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* line 1, src/scss/components/_main.scss */
+.page-content {
+  padding: 0 2em 1em;
+}
+
+/* line 1, src/scss/pages/_search.scss */
+.search-page {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+}
+
+/* line 7, src/scss/pages/_search.scss */
+.serach-item {
+  background: #D1D4D5;
+}
+
+/* line 10, src/scss/pages/_search.scss */
+.search-page-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* line 14, src/scss/pages/_search.scss */
+.search-page-list li {
+  border-top: 1px solid;
+  padding-left: 1em;
+  line-height: 2.5em;
+}
+
+/* line 18, src/scss/pages/_search.scss */
+.search-page-list li:first-child {
+  border-top: none;
+}
+
+/* line 24, src/scss/pages/_search.scss */
+.search-page-list li .checkbox {
+  background: #fff;
+}
+
+/* line 27, src/scss/pages/_search.scss */
+.search-page-list li label {
+  font-size: .9em;
+}
+
+/* line 32, src/scss/pages/_search.scss */
+.li-title {
+  font-weight: 700;
+}
+
+/* line 1, src/scss/pages/_artists.scss */
+.artists-page {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1em;
+}
+
+/* line 5, src/scss/pages/_artists.scss */
+.artists-page img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* line 10, src/scss/pages/_artists.scss */
+.artists-page .artists__name {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* line 1, src/scss/pages/_artist.scss */
+.top-albums {
+  color: #676767;
+}
+
+/* line 3, src/scss/pages/_artist.scss */
+.top-albums h2 {
+  margin: 1em 0;
+}
+
+/* line 6, src/scss/pages/_artist.scss */
+.top-albums ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* line 13, src/scss/pages/_artist.scss */
+.top-albums li {
+  padding: 1em;
+  border-top: 1px solid;
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  grid-gap: 1em;
+}
+
+/* line 19, src/scss/pages/_artist.scss */
+.top-albums li:nth-child(7), .top-albums li:nth-child(8), .top-albums li:nth-child(9) {
+  border-bottom: 1px solid;
+}
+
+/* line 23, src/scss/pages/_artist.scss */
+.top-albums .square {
+  height: 4rem;
+  background: #BDBFC2;
+}
+
+/* line 31, src/scss/pages/_artist.scss */
+.artist__card {
+  background: #3F3E40;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 1em;
+  color: #fff;
+}
+
+/* line 37, src/scss/pages/_artist.scss */
+.artist__card img {
+  max-height: 330px;
+  object-fit: cover;
+}
+
+/* line 43, src/scss/pages/_artist.scss */
+.artist__name {
+  text-align: left;
+  padding-top: 1rem;
+  font-size: 3.5em;
+}
+
+/* line 48, src/scss/pages/_artist.scss */
+.social-networks {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  margin: 1em 0;
+}
+
+/* line 53, src/scss/pages/_artist.scss */
+.social-networks li {
+  margin-right: 1em;
+}
+
+/* line 56, src/scss/pages/_artist.scss */
+.social-networks a {
+  display: block;
+  width: 1.8em;
+  height: 1.8em;
+  font-size: 1.5em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  border: 1px solid;
+  background-color: #fff;
+  color: #3F3E40;
+  transition: all .3s;
+  text-align: center;
+}
+
+/* line 69, src/scss/pages/_artist.scss */
+.social-networks a:hover {
+  background-color: #007CF0;
+  transform: scale(1.25);
+}
+
+/* line 75, src/scss/pages/_artist.scss */
+.artist__item {
+  position: relative;
+}
+
+/* line 79, src/scss/pages/_artist.scss */
+.artist__description {
+  padding-right: 1em;
+  bottom: 1em;
+  font-size: .95em;
+  text-align: justify;
+}
+
+/* line 85, src/scss/pages/_artist.scss */
+.artist__links {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+/* line 94, src/scss/pages/_artist.scss */
+.btn-link {
+  padding: 0 1em;
+  line-height: 2em;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: .5em;
+}
+
+/* line 100, src/scss/pages/_artist.scss */
+.btn-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+/* line 106, src/scss/pages/_artist.scss */
+.btn-share .icon-plus {
+  display: block;
+  border: 1px solid;
+  height: 1.75em;
+  width: 1.75em;
+  font-size: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+}
+
+/* line 115, src/scss/pages/_artist.scss */
+.btn-share span {
+  display: block;
+  width: 3.5em;
+  font-size: .9em;
+  text-align: center;
+  line-height: 1em;
+}
+
+/* line 2, src/scss/pages/_albums.scss */
+.albums__head {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-gap: 2em;
+  margin-bottom: 2rem;
+}
+
+/* line 7, src/scss/pages/_albums.scss */
+.albums__head img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* line 16, src/scss/pages/_albums.scss */
+.albums__title h2 {
+  font-size: 3.5em;
+}
+
+/* line 19, src/scss/pages/_albums.scss */
+.albums__title h3 {
+  font-size: 2em;
+}
+
+/* line 24, src/scss/pages/_albums.scss */
+.albums__table {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr) 275px;
+  border-radius: 1em;
+  border: 1px solid;
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+
+/* line 32, src/scss/pages/_albums.scss */
+.albums__table h2 {
+  font-size: 1em;
+  line-height: 2.3;
+  color: #fff;
+}
+
+/* line 39, src/scss/pages/_albums.scss */
+.td {
+  font-size: .9em;
+  text-align: center;
+  position: relative;
+}
+
+/* line 43, src/scss/pages/_albums.scss */
+.td p, .td .btns {
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 50, src/scss/pages/_albums.scss */
+.td img {
+  position: absolute;
+  display: block;
+  width: 75%;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 60, src/scss/pages/_albums.scss */
+.td > button {
+  font-size: .8em;
+}
+
+/* line 63, src/scss/pages/_albums.scss */
+.td__title {
+  background: #2C3336;
+  width: 100%;
+  height: 2.3em;
+}
+
+/* line 68, src/scss/pages/_albums.scss */
+.td.actions {
+  text-align: right;
+}
+
+/* line 71, src/scss/pages/_albums.scss */
+.td.actions > .td__title H2, .td.actions > .btns {
+  padding-right: 1em;
+}
+
+/* line 74, src/scss/pages/_albums.scss */
+.td.actions > .btns {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+/* line 77, src/scss/pages/_albums.scss */
+.td.actions > .btns button {
+  margin-right: .5em;
+  font-size: .8em;
+  background: #0095D9;
+  border: none;
+  border-radius: .3rem;
+  line-height: 1.75em;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* line 86, src/scss/pages/_albums.scss */
+.td.actions > .btns button:last-child {
+  margin-right: 0;
+}
